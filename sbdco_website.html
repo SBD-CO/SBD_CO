@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBD CO — E-Commerce Consulting by Shayna Borden</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3EE;
+    --warm-white: #FBF9F6;
+    --sand: #E8DDD0;
+    --clay: #C4A882;
+    --terracotta: #B5715A;
+    --bark: #6B4F3A;
+    --deep: #2C1F14;
+    --sage: #8A9E8C;
+    --text: #2C1F14;
+    --text-light: #7A6555;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 24px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(247,243,238,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(196,168,130,0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--deep);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--terracotta); }
+
+  .nav-cta {
+    background: var(--terracotta);
+    color: white !important;
+    padding: 10px 24px;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--bark) !important; color: white !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+
+  .hero-left {
+    padding: 80px 64px 80px 80px;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative;
+  }
+
+  .hero-left::after {
+    content: '';
+    position: absolute; right: 0; top: 15%; bottom: 15%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--clay), transparent);
+  }
+
+  .hero-tag {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 32px;
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block; width: 32px; height: 1px;
+    background: var(--terracotta);
+  }
+
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--deep);
+    margin-bottom: 28px;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--text-light);
+    max-width: 420px;
+    margin-bottom: 48px;
+  }
+
+  .hero-actions {
+    display: flex; gap: 16px; align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--terracotta);
+    color: white;
+    padding: 16px 36px;
+    border: none; border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--bark);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-light);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--clay);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .btn-secondary:hover {
+    color: var(--terracotta);
+    border-color: var(--terracotta);
+  }
+
+  .hero-right {
+    background: var(--sand);
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .hero-photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 16px;
+  }
+
+  .photo-frame {
+    width: 280px; height: 360px;
+    border: 1px solid var(--clay);
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .photo-frame::before {
+    content: '';
+    position: absolute; top: -8px; left: -8px; right: -8px; bottom: -8px;
+    border: 1px solid rgba(196,168,130,0.3);
+  }
+
+  .photo-inner {
+    background: rgba(196,168,130,0.15);
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px;
+    padding: 32px;
+    text-align: center;
+  }
+
+  .photo-icon {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: var(--clay);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+  }
+
+  .photo-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--bark);
+    line-height: 1.5;
+  }
+
+  .photo-subnote {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    bottom: 40px; right: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 120px;
+    font-weight: 300;
+    color: rgba(107,79,58,0.08);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--deep);
+    padding: 20px 80px;
+    display: flex; align-items: center; gap: 48px;
+    overflow: hidden;
+  }
+
+  .trust-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clay);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .trust-items {
+    display: flex; gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(247,243,238,0.6);
+    white-space: nowrap;
+  }
+
+  /* ── INTRO SECTION ── */
+  .intro {
+    padding: 120px 80px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    padding-top: 8px;
+  }
+
+  .intro-content {}
+
+  .intro-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 3.5vw, 52px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--deep);
+    margin-bottom: 32px;
+  }
+
+  .intro-headline em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .intro-body {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 24px;
+    max-width: 620px;
+  }
+
+  .intro-signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+    color: var(--bark);
+    margin-top: 40px;
+  }
+
+  /* ── SERVICES ── */
+  .services {
+    padding: 120px 80px;
+    background: var(--warm-white);
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    margin-bottom: 72px;
+    align-items: end;
+  }
+
+  .section-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 4vw, 58px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--deep);
+  }
+
+  .section-headline em { font-style: italic; color: var(--terracotta); }
+
+  .section-desc {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--text-light);
+    max-width: 480px;
+    align-self: end;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .service-card {
+    background: var(--cream);
+    padding: 48px 40px;
+    position: relative;
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .service-card:hover {
+    background: white;
+  }
+
+  .service-card:hover .service-num {
+    color: var(--terracotta);
+  }
+
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--sand);
+    line-height: 1;
+    margin-bottom: 24px;
+    transition: color 0.3s;
+  }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--deep);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text-light);
+    margin-bottom: 24px;
+  }
+
+  .service-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+
+  .tag {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bark);
+    background: var(--sand);
+    padding: 4px 10px;
+    border-radius: 1px;
+  }
+
+  /* ── PROOF ── */
+  .proof {
+    padding: 120px 80px;
+    background: var(--deep);
+  }
+
+  .proof .section-label { color: var(--clay); }
+
+  .proof-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    margin-bottom: 72px;
+    align-items: end;
+  }
+
+  .proof-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 4vw, 58px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--cream);
+  }
+
+  .proof-headline em { font-style: italic; color: var(--clay); }
+
+  .proof-desc {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(247,243,238,0.5);
+    max-width: 480px;
+    align-self: end;
+  }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .proof-card {
+    background: rgba(255,255,255,0.04);
+    padding: 56px 48px;
+    border: 1px solid rgba(196,168,130,0.15);
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .proof-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(196,168,130,0.35);
+  }
+
+  .proof-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .proof-category {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 28px;
+  }
+
+  .proof-body {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(247,243,238,0.6);
+    margin-bottom: 32px;
+  }
+
+  .proof-services {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+
+  .proof-tag {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(247,243,238,0.4);
+    border: 1px solid rgba(196,168,130,0.25);
+    padding: 4px 10px;
+  }
+
+  .proof-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 28px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--clay);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .proof-link:hover { color: var(--cream); }
+  .proof-link::after { content: '→'; }
+
+  /* ── WHO I WORK WITH ── */
+  .who {
+    padding: 120px 80px;
+    background: var(--sand);
+  }
+
+  .who-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .who-left {}
+
+  .who-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 4vw, 58px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--deep);
+    margin-bottom: 32px;
+  }
+
+  .who-headline em { font-style: italic; color: var(--terracotta); }
+
+  .who-body {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 48px;
+  }
+
+  .who-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 20px;
+  }
+
+  .who-list li {
+    display: flex; gap: 20px; align-items: start;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--text-light);
+  }
+
+  .who-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--terracotta);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .who-right {
+    background: var(--cream);
+    padding: 56px 48px;
+    position: relative;
+  }
+
+  .who-right::before {
+    content: '"';
+    position: absolute; top: 24px; left: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 120px;
+    color: var(--clay);
+    opacity: 0.3;
+    line-height: 1;
+  }
+
+  .who-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--deep);
+    margin-bottom: 32px;
+    padding-top: 40px;
+  }
+
+  .who-quote-attr {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    padding: 120px 80px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-left {}
+
+  .about-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 4vw, 58px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--deep);
+    margin-bottom: 32px;
+  }
+
+  .about-headline em { font-style: italic; color: var(--terracotta); }
+
+  .about-body {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    max-width: 580px;
+  }
+
+  .about-body strong {
+    color: var(--deep);
+    font-weight: 500;
+  }
+
+  .about-right {
+    background: var(--sand);
+    padding: 48px 40px;
+    border-top: 3px solid var(--terracotta);
+  }
+
+  .about-stats {
+    display: flex; flex-direction: column; gap: 36px;
+  }
+
+  .stat {}
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--deep);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-top: 4px;
+  }
+
+  .stat-divider {
+    height: 1px;
+    background: var(--clay);
+    opacity: 0.3;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 120px 80px;
+    background: var(--terracotta);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: 'SBD';
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 320px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.06);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .cta-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 28px;
+  }
+
+  .cta-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(44px, 5vw, 72px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 24px;
+  }
+
+  .cta-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 48px;
+    max-width: 480px;
+    margin-left: auto; margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .btn-white {
+    background: white;
+    color: var(--terracotta);
+    padding: 18px 48px;
+    border: none; border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  }
+
+  .cta-note {
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    padding: 56px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+
+  .footer-tagline {
+    font-size: 12px;
+    color: rgba(247,243,238,0.35);
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links {
+    display: flex; gap: 32px; list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(247,243,238,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--clay); }
+
+  .footer-right {
+    font-size: 12px;
+    color: rgba(247,243,238,0.3);
+    text-align: right;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag { animation: fadeUp 0.6s ease both; }
+  .hero-headline { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-sub { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-actions { animation: fadeUp 0.6s 0.3s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 60px 32px; }
+    .hero-right { height: 400px; }
+    .intro, .about { grid-template-columns: 1fr; gap: 40px; padding: 80px 32px; }
+    .section-header, .proof-header { grid-template-columns: 1fr; gap: 24px; }
+    .services, .proof, .who, .cta-section { padding: 80px 32px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .proof-grid { grid-template-columns: 1fr; }
+    .who-inner { grid-template-columns: 1fr; }
+    footer { padding: 40px 32px; flex-direction: column; align-items: flex-start; }
+    .trust-bar { padding: 20px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SBD CO</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">E-Commerce Consulting — Murrieta, CA</div>
+    <h1 class="hero-headline">
+      Built two brands<br>
+      from scratch.<br>
+      <em>Now I help<br>others do the same.</em>
+    </h1>
+    <p class="hero-sub">
+      SBD CO is a boutique e-commerce consultancy run by a real founder. Every service I offer is something I've done myself — for real products, with real money on the line.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book a Free Call</a>
+      <a href="#services" class="btn-secondary">See what I do</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-placeholder">
+      <div class="photo-frame">
+        <div class="photo-inner">
+          <div class="photo-icon">🌿</div>
+          <p class="photo-note">Add your photo here — a warm, candid shot works perfectly</p>
+          <p class="photo-subnote">Shayna Borden · Founder</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bg-text">S</div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <span class="trust-label">Platforms</span>
+  <div class="trust-items">
+    <span class="trust-item">Amazon</span>
+    <span class="trust-item">Walmart</span>
+    <span class="trust-item">TikTok Shop</span>
+    <span class="trust-item">Shopify</span>
+    <span class="trust-item">Brand Design</span>
+    <span class="trust-item">UGC & Affiliates</span>
+    <span class="trust-item">Product Research</span>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="intro" id="about-intro">
+  <div>
+    <div class="section-label">The difference</div>
+  </div>
+  <div class="intro-content">
+    <h2 class="intro-headline">
+      You don't need a big agency.<br>
+      <em>You need someone who's done it.</em>
+    </h2>
+    <p class="intro-body">
+      Most consultants advise from the sidelines. I built Bumble & Bright and Rinarie Home from the ground up — from sourcing manufacturers in China to writing listing copy, designing gallery images, running Amazon PPC, setting up TikTok Shop affiliates, and figuring out what actually works through trial, error, and real money spent.
+    </p>
+    <p class="intro-body">
+      Every service I offer is something I've done myself. That means when I help you, I'm not guessing — I'm sharing what I know because I've lived it.
+    </p>
+    <p class="intro-body">
+      I work with a small number of clients at a time. When you work with SBD CO, you work with me.
+    </p>
+    <div class="intro-signature">— Shayna</div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div class="section-label">What I do</div>
+    <div>
+      <h2 class="section-headline">Everything your<br>product brand needs<br><em>to sell online.</em></h2>
+    </div>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-name">Amazon Launch & Optimization</div>
+      <p class="service-desc">Keyword-optimized titles, benefit-driven bullets, A+ content, gallery images, and PPC strategy. For new sellers and existing brands whose listings aren't converting.</p>
+      <div class="service-tags">
+        <span class="tag">Listing Copy</span>
+        <span class="tag">A+ Content</span>
+        <span class="tag">Gallery Images</span>
+        <span class="tag">PPC Strategy</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-name">Walmart Marketplace</div>
+      <p class="service-desc">Get your products in front of Walmart's 120M+ monthly shoppers. Listing setup, content optimization, and launch strategy from someone with real platform experience.</p>
+      <div class="service-tags">
+        <span class="tag">Listing Setup</span>
+        <span class="tag">Content</span>
+        <span class="tag">Launch Strategy</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-name">TikTok Shop & Affiliates</div>
+      <p class="service-desc">Creator outreach, affiliate setup, UGC sourcing, and content strategy. The fastest-growing sales channel for product brands — set up right from day one.</p>
+      <div class="service-tags">
+        <span class="tag">Creator Outreach</span>
+        <span class="tag">UGC</span>
+        <span class="tag">Affiliate CRM</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-name">Brand Identity & Graphic Design</div>
+      <p class="service-desc">Logo, color palette, product packaging guidance, Amazon storefront, and marketing assets. Your brand should look as good as your product.</p>
+      <div class="service-tags">
+        <span class="tag">Logo</span>
+        <span class="tag">Brand Guidelines</span>
+        <span class="tag">Marketing Assets</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-name">Shopify Store Setup</div>
+      <p class="service-desc">Clean, conversion-focused DTC stores built for small product brands. From zero to launch, with everything you need to start selling direct.</p>
+      <div class="service-tags">
+        <span class="tag">Store Build</span>
+        <span class="tag">Product Pages</span>
+        <span class="tag">DTC Strategy</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-name">Product Research & Strategy</div>
+      <p class="service-desc">Market analysis, competitor research, and opportunity identification for brands looking to expand their product line or launch their first product with confidence.</p>
+      <div class="service-tags">
+        <span class="tag">Market Research</span>
+        <span class="tag">Competitor Analysis</span>
+        <span class="tag">Launch Planning</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof" id="work">
+  <div class="proof-header">
+    <div class="section-label">Real work</div>
+    <div>
+      <h2 class="proof-headline">Not hypothetical.<br><em>Actual brands<br>I built myself.</em></h2>
+    </div>
+  </div>
+
+  <div class="proof-grid">
+    <div class="proof-card">
+      <div class="proof-brand">Bumble & Bright</div>
+      <div class="proof-category">Children's Sleep & Lifestyle · Amazon · Shopify</div>
+      <p class="proof-body">
+        Built from concept to Amazon launch — product development with overseas manufacturer, full brand identity, listing optimization, A+ Premium content, gallery image design, PPC strategy, TikTok Shop setup, and ongoing growth. The Go & Glow Bunny sleep trainer clock, live and selling.
+      </p>
+      <div class="proof-services">
+        <span class="proof-tag">Brand Identity</span>
+        <span class="proof-tag">Amazon Listing</span>
+        <span class="proof-tag">A+ Content</span>
+        <span class="proof-tag">Gallery Images</span>
+        <span class="proof-tag">PPC</span>
+        <span class="proof-tag">Shopify</span>
+        <span class="proof-tag">TikTok Shop</span>
+      </div>
+      <a href="https://www.amazon.com" class="proof-link" target="_blank">View on Amazon</a>
+    </div>
+    <div class="proof-card">
+      <div class="proof-brand">Rinarie Home</div>
+      <div class="proof-category">Home & Lifestyle · Amazon · Shopify</div>
+      <p class="proof-body">
+        Home and lifestyle brand launched from the ground up. Full brand development, Amazon listing strategy, product photography direction, Shopify store build, and marketplace launch. Expanding product line in development.
+      </p>
+      <div class="proof-services">
+        <span class="proof-tag">Brand Identity</span>
+        <span class="proof-tag">Amazon Launch</span>
+        <span class="proof-tag">Listing Strategy</span>
+        <span class="proof-tag">Shopify</span>
+        <span class="proof-tag">Product Strategy</span>
+      </div>
+      <a href="https://www.amazon.com" class="proof-link" target="_blank">View on Amazon</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="who">
+  <div class="who-inner">
+    <div class="who-left">
+      <div class="section-label">Who I work with</div>
+      <h2 class="who-headline">Right for you<br><em>if you're ready<br>to actually sell.</em></h2>
+      <p class="who-body">
+        I work best with small product businesses that have something real to sell and need a trusted partner — not a big agency with junior staff, not a freelancer guessing at strategy.
+      </p>
+      <ul class="who-list">
+        <li>
+          <div class="who-dot"></div>
+          <span>Local small businesses ready to get their products onto Amazon or Walmart for the first time</span>
+        </li>
+        <li>
+          <div class="who-dot"></div>
+          <span>Existing sellers whose listings aren't converting and can't figure out why</span>
+        </li>
+        <li>
+          <div class="who-dot"></div>
+          <span>Makers and artisans ready to take their product beyond local markets and farmers markets</span>
+        </li>
+        <li>
+          <div class="who-dot"></div>
+          <span>Product founders who need branding, design, and e-commerce strategy all in one place</span>
+        </li>
+      </ul>
+    </div>
+    <div class="who-right">
+      <blockquote class="who-quote">
+        "When you work with SBD CO, you work with me. Not a team of juniors. Not a templated process. Just honest, experienced help from someone who's built this herself."
+      </blockquote>
+      <div class="who-quote-attr">— Shayna Borden, Founder · SBD CO</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-left">
+    <div class="section-label">About Shayna</div>
+    <h2 class="about-headline">Real operator.<br><em>Real experience.</em></h2>
+    <p class="about-body">
+      I'm Shayna Borden, founder of SBD CO, Bumble & Bright, and Rinarie Home. I've spent years building product brands from the ground up — finding manufacturers, developing brand identities, writing listing copy that converts, designing gallery images, running Amazon PPC, sourcing UGC creators, and solving every problem that comes with being a small business owner in e-commerce.
+    </p>
+    <p class="about-body">
+      <strong>I didn't learn this in a course.</strong> I learned it by doing it with my own money, my own time, and my own brands. Every mistake I've made is one you won't have to.
+    </p>
+    <p class="about-body">
+      I'm based in Murrieta, California. I'm available for local in-person meetings as well as remote clients. I work with a small number of clients at a time — because I'd rather do excellent work for a few people than mediocre work for many.
+    </p>
+  </div>
+  <div class="about-right">
+    <div class="about-stats">
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Brands built from scratch</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Platforms &amp; channels</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Person. Me. On your account.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-label">Ready to start</div>
+  <h2 class="cta-headline">Let's talk about<br>your product.</h2>
+  <p class="cta-sub">Free 30-minute consultation. No pitch, no pressure — just honest feedback on where you are and what would actually help.</p>
+  <a href="mailto:hello@sbdco.com" class="btn-white">Book a Free Call</a>
+  <p class="cta-note">Or email directly: hello@sbdco.com</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">SBD CO</div>
+    <div class="footer-tagline">Shayna Borden Design Company · Murrieta, California</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-right">
+    Amazon · Walmart · TikTok Shop<br>
+    Shopify · Brand Design · UGC
+  </div>
+</footer>
+
+</body>
+</html>
